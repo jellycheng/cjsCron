@@ -1,5 +1,4 @@
 <?php
-
 namespace CjsCron;
 
 /**
@@ -24,7 +23,7 @@ class MinutesField extends AbstractField
     }
 
     public function validate($value)
-    {
+    {// *, 1/5，1-5
         return (bool) preg_match('/^[\*,\/\-0-9]+$/', $value);
     }
 }
