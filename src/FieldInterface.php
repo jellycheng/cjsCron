@@ -1,6 +1,7 @@
 <?php
 namespace CjsCron;
 
+use DateTime;
 /**
  * CRON field interface
  */
@@ -8,13 +9,13 @@ interface FieldInterface
 {
     /**
      * Check if the respective value of a DateTime field satisfies a CRON exp
-     *
+     * 验证DateTime时间是否符合设置的cron表达式值
      * @param DateTime $date  DateTime object to check
      * @param string   $value CRON expression to test against
      *
      * @return bool Returns TRUE if satisfied, FALSE otherwise
      */
-    public function isSatisfiedBy(\DateTime $date, $value);
+    public function isSatisfiedBy(DateTime $date, $value);
 
     /**
      * When a CRON expression is not satisfied, this method is used to increment
@@ -25,11 +26,11 @@ interface FieldInterface
      *
      * @return FieldInterface
      */
-    public function increment(\DateTime $date, $invert = false);
+    public function increment(DateTime $date, $invert = false);
 
     /**
      * Validates a CRON expression for a given field
-     *
+     * 验证值是否符合表达式规则
      * @param string $value CRON expression value to validate
      *
      * @return bool Returns TRUE if valid, FALSE otherwise
